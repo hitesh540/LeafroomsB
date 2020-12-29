@@ -66,7 +66,7 @@ const productSchema = new mongoose.Schema(
     images: {
       type: Array,
     },
-    shipping: {
+    categry: {
       type: String,
       enum: ["Bachelor", "Family"],
     },

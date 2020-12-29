@@ -247,8 +247,8 @@ const handleSub = async (req, res, sub) => {
   res.json(products);
 };
 
-const handleShipping = async (req, res, shipping) => {
-  const products = await Product.find({ shipping })
+const handlecategry = async (req, res, categry) => {
+  const products = await Product.find({ categry })
     .populate("category", "_id name")
     .populate("subs", "_id name")
     .populate("postedBy", "_id name")
@@ -284,7 +284,7 @@ exports.searchFilters = async (req, res) => {
     category,
     stars,
     sub,
-    shipping,
+    categry,
     color,
     brand,
   } = req.body;
@@ -315,9 +315,9 @@ exports.searchFilters = async (req, res) => {
     await handleSub(req, res, sub);
   }
 
-  if (shipping) {
-    console.log("shipping ---> ", shipping);
-    await handleShipping(req, res, shipping);
+  if (categry) {
+    console.log("categry ---> ", categry);
+    await handlecategry(req, res, categry);
   }
 
   if (color) {
